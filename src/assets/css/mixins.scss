@@ -1,0 +1,10 @@
+@mixin formInputStyle {
+     margin: 0.5rem 0;
+     padding: 1rem 0;
+}
+
+@mixin buttonSubmitStyle {
+     width: 90%;
+     display: block;
+     margin: auto;
+}

@@ -1,0 +1,42 @@
+@import '../../../../../assets/css/mixins.scss';
+
+.sign-in-component {
+     display: flex;
+     margin: 1rem;
+     justify-content: center;
+     align-items: center;
+     .info-image {
+          background-color: white;
+          padding: 1rem;
+
+          img {
+               width: 30%;
+               padding: 1rem;
+          }
+
+          .icon {
+               padding-right:0.5rem;
+          }
+
+          h3 {
+               padding: 1rem;
+          }
+
+          .promo-pulse-probe {
+               padding: 1rem;
+          }
+     }
+
+     .sign-up-form{
+          background-color: var(--indigo-200);
+          padding: 1.5rem;
+
+          .sign-in-field {
+               @include formInputStyle();
+          }
+
+          .btn-submit {
+               @include buttonSubmitStyle();
+          }
+     }
+}

@@ -1,1 +1,47 @@
-<p>sign-in works!</p>
+<div class="sign-in-component">
+     <div class="info-image">
+          <img src="../../../../../assets/images/pulse-probe-logo.png" alt="logo-image">
+          <h3>Benefits of creating an account</h3>
+          <div class="promo-pulse-probe">
+               <i class="pi pi-verified icon"></i>
+               Get In Touch With Verified Doctors/Labs
+          </div>
+          <div class="promo-pulse-probe">
+               <i class="pi pi-share-alt icon"></i>
+               Easy Report Sharing
+          </div>
+          <div class="promo-pulse-probe">
+               <i class="pi pi-heart icon"></i>
+               Heart Disease Prediction
+          </div>
+          <div class="promo-pulse-probe">
+               <i class="pi pi-briefcase icon"></i>
+               Medical History Security
+          </div>
+          <div class="promo-pulse-probe">
+               <i class="pi pi-calendar-plus icon"></i>
+               Convienient Appointment Booking
+          </div>
+     </div>
+     <div class="sign-up-form">
+          <form [formGroup]="signinForm">
+               <span class="p-float-label sign-in-field">
+                    <input class="p-inputtext-lg" autocomplete="off" id="name" pInputText formControlName="name">
+                    <label htmlFor="name">Name</label>
+               </span>
+               <span class="p-float-label sign-in-field">
+                    <input class="p-inputtext-lg" autocomplete="off" id="name" pInputText formControlName="email">
+                    <label htmlFor="name">Email</label>
+               </span>
+               <span class="p-float-label sign-in-field">
+                    <p-password class="p-inputtext-lg" [feedback]="false" autocomplete="off" id="name" [toggleMask]="true" formControlName="password"></p-password>
+                    <label htmlFor="name">Password</label>
+               </span>
+               <span class="p-float-label sign-in-field">
+                    <input class="p-inputtext-lg" autocomplete="off" id="name" pInputText formControlName="phoneNumber">
+                    <label htmlFor="name">Phone Number</label>
+               </span>
+               <p-button label="Sign In" [loading]="isLoading" class="btn-submit"></p-button>
+          </form>
+     </div>
+</div>
