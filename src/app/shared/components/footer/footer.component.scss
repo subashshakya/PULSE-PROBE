@@ -1,0 +1,22 @@
+.footer-component {
+     margin-top: 1rem;
+     background-color: white;
+     display: flex;
+     gap: 5%;
+     justify-content: center;
+     align-items: center;
+     position:static;
+     bottom: 0;
+
+     .footer-child {
+
+          img {
+               width: 50%;
+          }
+
+          a{
+               display: block;
+               padding: 0.3rem 0;
+          }
+     }
+}

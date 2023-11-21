@@ -1,0 +1,44 @@
+@import "../../../../../assets/css/theme.css";
+
+.component{
+     padding: 1rem;
+     border-radius: 0.5rem;
+     margin: 0.2rem;
+
+     
+     .heading {
+          text-align: center;
+     }
+     
+     .sign-up-container {
+          display:flex;
+          justify-content: left;
+          border: 1px solid var(--primary-50);
+          align-items: left;
+          gap: 10%;
+          background-color: white;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+     
+          img {
+               width: 80%;
+          }
+     
+          .form {
+               background-color: var(--indigo-200);
+               border-radius: 0.5rem;
+               padding: 1rem;
+     
+               .signup-field{
+                    margin: 0.5rem 0;
+                    padding: 1rem 0;
+               }
+
+               .btn-submit {
+                    width: 90%;
+                    display: block;
+                    margin: auto;
+               }
+          }
+     }
+}

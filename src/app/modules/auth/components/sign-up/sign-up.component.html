@@ -1,0 +1,37 @@
+<div class="component">
+<h2 class="heading">Pulse Probe Signup Form</h2>
+<div class="sign-up-container">
+     <div class="form">
+          <form [formGroup]="signUpForm">
+               <span class="p-float-label signup-field">
+                    <input  class="p-inputtext-lg" autocomplete="false" id="name" pInputText pKeyFilter="alpha" formControlName="name" />
+                    <label htmlFor="name">Name</label>
+               </span>
+               <span class="p-float-label signup-field">
+                    <input class="p-inputtext-lg" id="email" pInputText formControlName="email">
+                    <label htmlFor="email">Email</label>
+               </span>
+               <span class="p-float-label signup-field">
+                    <p-password formControlName="password" id="password" [toggleMask]="true"></p-password>
+                    <label htmlFor="password">Password</label>
+               </span>
+               <span class="p-float-label signup-field">
+                    <p-password formControlName="rePassword" id="re-password" [toggleMask]="true" [feedback]="false"></p-password>
+                    <label htmlFor="re-password">Re-enter Password</label>
+               </span>
+               <span class="p-float-label signup-field">
+                    <p-dropdown [options]="signupRole" formControlName="signupAs" placeholder="Select a role" optionLabel="name" inputId="float-label"></p-dropdown>
+                    <label for="float-label">Signup As</label>
+               </span>
+               <span class="p-float-label signup-field">
+                    <p-inputMask mask="999-9999-999" id="mobileNumber" formControlName="mobileNumber"></p-inputMask>
+                    <label for="mobileNumber">Mobile Number</label>
+               </span>
+               <p-button label="Submit" [loading]="isLoading" class="btn-submit" (onClick)="submitForm()"></p-button>
+          </form>
+     </div>
+     <div class="image">
+          <img src="../../../../../assets/images/signup.png" alt="signup image">
+     </div>
+     </div>
+</div>
