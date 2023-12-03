@@ -1,0 +1,55 @@
+@import "../../../../../styles.scss";
+
+.report-list-item {
+  border-radius: 8px;
+  margin: 1rem 0.5rem;
+  padding: 0.5rem 1rem;
+  transition-duration: 1s;
+  transition: border-radius ease-in-out;
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h4 {
+      font-weight: 300;
+    }
+
+    .status {
+      text-align: center;
+
+      p {
+        padding: 0.5rem;
+        border-radius: 8px;
+        color: red;
+        border: 1px solid var(--red-50);
+        margin: auto;
+        background-color: rgba(255,255,0, 0.7);
+      }
+    }
+
+  }
+  .item {
+    display: flex;
+
+    i {
+      padding: 0.2rem;
+      font-size: 0.8rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+#report-list-item {
+  background-color: var(--red-50);
+  box-shadow: 1px 3px 7px var(--red-100);
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+#report-list-item:hover {
+  box-shadow: 2px 5px 10px var(--red-200);
+}

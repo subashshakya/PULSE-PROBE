@@ -1,0 +1,18 @@
+<div class="patient-reports">
+  <div class="header">
+    <i class="pi pi-id-card" style="font-weight: 300; color: var(--red-700)"></i>
+    <h3>Current Reports</h3>
+  </div>
+  <div class="report-list">
+    <ul *ngFor="let report of reportlist">
+      <li><app-report-list-item 
+        [reportId]="report.reportId"
+        [reportStatus]="report.reportStatus"
+        [patientName]="report.patientName"
+        [labBookedin]="report.labBookedin"
+        [reportType]="report.reportType"
+        ></app-report-list-item>
+      </li>
+    </ul>
+  </div>
+</div>

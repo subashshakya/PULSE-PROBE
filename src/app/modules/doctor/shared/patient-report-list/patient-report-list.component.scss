@@ -1,0 +1,31 @@
+.patient-reports {
+
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--red-700);
+
+    i {
+      padding: 1rem;
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      font-weight: 300;
+    }
+  }
+
+  .report-list {
+    max-height: 700px;
+    overflow-y: auto;
+    border-radius: 8px;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
