@@ -8,6 +8,7 @@ import { PatientReportListComponent } from './shared/patient-report-list/patient
 import { ReportListItemComponent } from './shared/report-list-item/report-list-item.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InputTextModule } from 'primeng/inputtext';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InputTextModule } from 'primeng/inputtext';
     CommonModule,
     FormsModule,
     DoctorRoutingModule,
-    InputTextModule
+    InputTextModule,
+    FullCalendarModule
   ]
 })
 export class DoctorModule { }

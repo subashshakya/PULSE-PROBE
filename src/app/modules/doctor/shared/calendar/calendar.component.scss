@@ -1,0 +1,40 @@
+@import "../../../../../styles.scss";
+
+.schedule {
+  margin: 0.3rem 0.5rem;
+  background-color: rgba(255,255,255,0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--red-700);
+
+    i {
+      padding: 1rem;
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      font-weight: 300;
+    }
+  }
+
+  ::ng-deep .calendar {
+    max-height: 700px;
+    font-weight: 300;
+    h3 h4 h5{
+      font-weight: 300;
+    }
+
+
+
+    a {
+      text-decoration: none;
+      color: var(--red-800);
+      cursor: pointer;
+    }
+  }
+}
