@@ -8,6 +8,7 @@ import { Component, ElementRef, AfterViewInit } from '@angular/core';
 export class AppComponent implements AfterViewInit {
   title = 'pulse-probe';
 
+
   constructor(private elref:ElementRef) {}
 
   ngAfterViewInit(): void {
