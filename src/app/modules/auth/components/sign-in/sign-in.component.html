@@ -41,7 +41,9 @@
                     <input class="p-inputtext-lg" autocomplete="off" id="name" pInputText formControlName="phoneNumber">
                     <label htmlFor="name">Phone Number</label>
                </span>
-               <p-button label="Sign In" [loading]="isLoading" class="btn-submit"></p-button>
+               <p-button label="Sign In" [loading]="isLoading" class="btn-submit" (onClick)="signinFormSubmit()"></p-button>
           </form>
      </div>
 </div>
+
+<p>{{output}}</p>
