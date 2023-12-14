@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +13,7 @@ export class SignUpComponent {
   public signupRole = ['Doctor', 'Patient', 'Lab'];
   public isLoading: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
     this.signUpForm = formBuilder.group(
       {
         name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
@@ -22,10 +23,22 @@ export class SignUpComponent {
         signupAs: ['', Validators.required],
         mobileNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^\d{10}$/)]],
       }
-    )
+    );
   }
 
-  submitForm() {
-    
+  public submitForm(): void {
+    if(this.signUpForm.get('password')?.value === this.signUpForm.get('rePassword')?.value) {
+      let formValues = {
+        "UserName": this.signUpForm.get('name')?.value.toString(),
+        "Email": this.signUpForm.get('password')?.value.toString(),
+        "Password": this.signUpForm.get('password')?.value.toString(),
+        // "role": this.signUpForm.get('signupAs')?.value.toString(),
+        // "mobileNumber": this.signUpForm.get('mobileNumber')?.value.toString()
+      }
+      
+      this.authService.signUp(formValues).subscribe(res => {
+        console.log(res);
+      });
+    }
   }
 }
