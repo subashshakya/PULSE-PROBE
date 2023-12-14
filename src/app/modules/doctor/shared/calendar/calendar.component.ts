@@ -18,7 +18,6 @@ export class CalendarComponent {
     },
     events: [
       { title: 'event 1', date: '2023-12-03' },
-
       { title: 'event 2', date: '2023-12-04' }
     ]
   };
