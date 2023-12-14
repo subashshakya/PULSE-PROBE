@@ -4,6 +4,49 @@
     <app-calendar></app-calendar>
   </div>
   <div class="reports col-md-4">
-    <app-patient-report-list></app-patient-report-list>
+    <div class="patient-reports">
+      <div class="header">
+        <i class="pi pi-id-card" style="font-weight: 300; color: var(--red-700)"></i>
+        <h3>Current Reports</h3>
+      </div>
+      <div class="report-list">
+        <div class="skeleton" *ngIf="!doctorReportsById">
+          <div class="border-round border-1 surface-border p-4 surface-card">
+            <ul class="m-0 p-0 list-none">
+              <li class="mb-3">
+                <div class="flex">
+                    <p-skeleton shape="circle" size="4rem" styleClass="mr-2"></p-skeleton>
+                    <div style="flex: 1">
+                        <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+                        <p-skeleton width="75%"></p-skeleton>
+                    </div>
+                </div>
+              </li>
+              <li class="mb-3">
+                <div class="flex">
+                    <p-skeleton shape="circle" size="4rem" styleClass="mr-2"></p-skeleton>
+                    <div style="flex: 1">
+                        <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+                        <p-skeleton width="75%"></p-skeleton>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <ul *ngFor="let report of doctorReportsById;let i = index">
+          <li *ngIf="doctorReportsById"><app-report-list-item
+            (click)="goToDetailsPage(doctorReportsById[i].patientId, doctorReportsById[i].reportId)"
+            [reportId]="report.reportId.toString()"
+            [reportStatus]="'Verified'"
+            [patientName]="report.patientFirstName"
+            [labBookedin]="report.healthCareCenterName"
+            [reportType]="'New Report'"
+            ></app-report-list-item>
+          </li>
+        </ul>
+      </div>
+    </div>  
   </div>
 </div>
+
