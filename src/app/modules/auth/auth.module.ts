@@ -11,14 +11,16 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputMaskModule } from 'primeng/inputmask';
 import { PasswordModule } from 'primeng/password';
+import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
-
+import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [
     SignInComponent,
     SignUpComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
   ],
+  providers: [AuthService],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -30,7 +32,8 @@ import { ButtonModule } from 'primeng/button';
     DropdownModule,
     InputMaskModule,
     PasswordModule,
-    ButtonModule
+    ButtonModule,
+    HttpClientModule
   ]
 })
 export class AuthModule { }

@@ -3,18 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
-
+import { SkeletonModule } from 'primeng/skeleton';
+import { TableModule } from 'primeng/table';
+import { TableSkeletonLoaderComponent } from './components/table-skeleton-loader/table-skeleton-loader.component';
 @NgModule({
   declarations: [
     FooterComponent,
-    BannerComponent
+    BannerComponent,
+    TableSkeletonLoaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SkeletonModule,
+    TableModule
   ],
   exports: [
     FooterComponent,
-    BannerComponent
+    BannerComponent,
+    TableSkeletonLoaderComponent
   ]
 })
 export class SharedModule { }

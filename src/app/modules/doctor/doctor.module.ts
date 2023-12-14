@@ -9,10 +9,18 @@ import { ReportListItemComponent } from './shared/report-list-item/report-list-i
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FullCalendarModule } from '@fullcalendar/angular';
-
+import { TableModule } from 'primeng/table';
+import { ReportDetailsComponent } from './components/report-details/report-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DoctorService } from './services/doctor.service';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { SkeletonModule } from 'primeng/skeleton';
+import { ListboxModule } from 'primeng/listbox';
 @NgModule({
   declarations: [
     DashboardComponent,
+    ReportDetailsComponent,
     NavBarComponent,
     CalendarComponent,
     PatientReportListComponent,
@@ -23,7 +31,14 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     FormsModule,
     DoctorRoutingModule,
     InputTextModule,
-    FullCalendarModule
-  ]
+    FullCalendarModule,
+    TableModule,
+    SharedModule,
+    SkeletonModule,
+    ProgressSpinnerModule,
+    HttpClientModule,
+    ListboxModule
+  ],
+  providers: [DoctorService]
 })
 export class DoctorModule { }
