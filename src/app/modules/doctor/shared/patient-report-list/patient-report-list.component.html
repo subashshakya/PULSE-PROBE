@@ -4,13 +4,14 @@
     <h3>Current Reports</h3>
   </div>
   <div class="report-list">
-    <ul *ngFor="let report of reportlist">
-      <li><app-report-list-item 
-        [reportId]="report.reportId"
-        [reportStatus]="report.reportStatus"
-        [patientName]="report.patientName"
-        [labBookedin]="report.labBookedin"
-        [reportType]="report.reportType"
+    <ul *ngFor="let report of doctorReports">
+      <li><app-report-list-item
+        (click)="goToDetailsPage(+!report?.patientId)"
+        [reportId]="report.reportId.toString()"
+        [reportStatus]="'Verified'"
+        [patientName]="report.patientFirstName"
+        [labBookedin]="report.healthCareCenterName"
+        [reportType]="'New Report'"
         ></app-report-list-item>
       </li>
     </ul>

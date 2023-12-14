@@ -1,0 +1,121 @@
+@import "../../../../../styles.scss";
+
+h2 {
+  text-align: center;
+  font-weight: 300;
+}
+
+.heading {
+  padding: 0.7rem;
+  background-color: var(--red-100);
+  font-weight: 400;
+}
+
+h4{
+   text-align: center;
+   font-weight: 300;
+}
+.report-detail-page {
+  display: flex;
+
+  .report-data {
+    padding: 1rem;
+
+    .report-table {
+      padding: 0.5rem;
+      display: flex;
+      background-color: var(--red-100);
+      border-radius: 10px;
+
+      h5 {
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: var(--primary-50);
+        margin: 0 0.5rem;
+        text-align: center;
+      }
+
+      .field {
+        .field-item {
+          margin: 0.5rem;
+          background: var(--red-50);
+          padding: 0.5rem;
+          border-radius: 6px;
+        }
+      }
+
+      .actual-result {
+        .ac-res {
+          margin: 0.5rem;
+          background: var(--primary-100);
+          padding: 0.5rem;
+          border-radius: 6px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .info-body {
+    padding: 1rem;
+  
+    .patient-info {
+
+      .patient-details {
+        display: flex;
+        background-color: var(--red-100);
+        border-radius: 8px;
+        padding: 1rem;
+
+        .det {
+          background-color: var(--red-50);
+          margin-right: 1rem;
+          padding: 0.5rem;
+          border-radius: 6px;
+        }
+
+        .image-section {
+          .image {
+            display: flex;
+            justify-content: right;
+            margin-right: 0.5rem;
+            align-items: center;
+            
+            img {
+              border-radius: 50%;
+              width: 10rem;
+              box-shadow: 2px 3px 4px var(--red-100);
+            }
+          }
+        }
+
+      }
+    }
+
+    .prediction-model {
+      .container {
+        display: flex;
+
+        .image {
+          img {
+            width: 100%;
+          }
+        }
+
+        .model-pred {
+          background-color: var(--red-100);
+          padding: 1rem;
+          border-radius: 8px;
+          margin-right: 1rem;
+
+          .reason {
+            display: flex;
+            gap: 0.3rem;
+            align-items: flex-start;
+            justify-content: flex-start;
+          }
+        }
+      }
+    }
+  }
+}

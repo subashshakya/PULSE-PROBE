@@ -11,4 +11,8 @@ export class ReportListItemComponent {
   @Input() patientName: string = '';
   @Input() labBookedin: string = '';
   @Input() reportType: string = '';
+
+  constructor() {
+    console.log(this.patientName);
+  }
 }

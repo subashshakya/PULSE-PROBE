@@ -1,1 +1,124 @@
-<p>report-details works!</p>
+<h2 class="heading">Report Detail of ID: {{reportId}}</h2>
+<div class="report-detail-page">
+  <div class="report-data col-md-6">
+    <h2>Report Data</h2>
+    <div *ngIf="!reportData">
+      <app-table-skeleton-loader [tableHeadings]="tableHeadings"></app-table-skeleton-loader>
+    </div>
+    <div class="report-table" *ngIf="reportData">
+      <div class="field col-md-6">
+        <h5>Field</h5>
+        <p class="field-item">Aortic Root</p>
+        <p class="field-item">Cholestrol</p>
+        <p class="field-item">Chest Pain Type</p>
+        <p class="field-item">Resting Blood Pressure</p>
+        <p class="field-item">Diastole</p>
+        <p class="field-item">Exercise Induced Angina</p>
+        <p class="field-item">IVS</p>
+        <p class="field-item">Left Atrium</p>
+        <p class="field-item">Left Ventrical</p>
+        <p class="field-item">LVEF</p>
+        <p class="field-item">LVPW</p>
+        <p class="field-item">Old Peak</p>
+        <p class="field-item">Resting ECG</p>
+        <p class="field-item">Right Ventrical</p>
+        <p class="field-item">Slope</p>
+        <p class="field-item">Systole</p>
+        <p class="field-item">THAL</p>
+        <p class="field-item">THALACH</p>
+        <p class="field-item">Resting Blood Pressure</p>
+      </div>
+      <div class="actual-result col-md-6">
+        <h5>Actual Values</h5>
+        <!--Comment and uncomment here-->
+        <p class="ac-res">{{reportData.patientReport.aarticRoot || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.chol || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.cp || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.restecg || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.diastole || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.exang}}</p>
+        <p class="ac-res">{{reportData.patientReport.ivs || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.leftAtrium || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.leftVentrical || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.lvef || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.lvpw || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.oldpeak || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.restecg || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.rightVentrical || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.slope || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.systole}}</p>
+        <p class="ac-res">{{reportData.patientReport.thal || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.thalach || ' '}}</p>
+        <p class="ac-res">{{reportData.patientReport.trestbps || ' '}}</p>
+      </div>
+    </div> 
+  </div>
+  <div class="info-body col-md-6">
+    <div class="patient-info">
+      <h2>Patient Information</h2>
+      <div class="loader" *ngIf="!patientDetails">
+        <div class="border-round border-1 surface-border p-4 surface-card">
+          <div class="flex mb-3">
+              <p-skeleton shape="circle" size="4rem" styleClass="mr-2"></p-skeleton>
+              <div>
+                  <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton>
+                  <p-skeleton width="2.5rem" styleClass="mb-2"></p-skeleton>
+                  <p-skeleton height=".5rem"></p-skeleton>
+              </div>
+          </div>
+          <p-skeleton width="100%" height="150px"></p-skeleton>
+          <div class="flex justify-content-between mt-3">
+              <p-skeleton width="2rem" height="1rem"></p-skeleton>
+              <p-skeleton width="2rem" height="1rem"></p-skeleton>
+          </div>
+      </div>
+      </div>
+      <div class="patient-details" *ngIf="patientDetails">
+        <div class="col-md-6 det">
+          <p><strong>Patient Id: </strong>{{patientDetails.patientId}}</p>
+          <p><strong>Patient Name: </strong>{{patientDetails.patientFirstName + ' ' + patientDetails.patientLastName}}</p>
+          <p><strong>Age: </strong>{{patientDetails.age}}</p>
+          <p><strong>Address: </strong>{{patientDetails.address}}</p>
+          <p><strong>Gender: </strong>{{patientDetails.gender}}</p>
+          <p><strong>Phone Number: </strong>{{patientDetails.phoneNumber}}</p>
+        </div>
+        <div class="col-md-6 image-section">
+          <div class="image">
+            <img [src]="patientImage">
+          </div>
+          <div class="dob">
+            <p><strong>Email: </strong>{{patientDetails.email}}</p>
+            <p><strong>Date of Birth: </strong>{{patientDetails.birthDate}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="prediction-model">
+      <h2>Prediction Model</h2>
+      <div class="container">
+        <div class="model-pred col-md-4">
+          <h4>AI model for prediction</h4>
+          <div *ngFor="let reason of why">
+            <div class="reason">
+              <div>
+                <i class="pi pi-shield"></i>
+              </div>
+              <div>
+                <p>{{ reason}}</p>
+              </div>
+            </div>
+          </div>
+          <button><i class="pi pi-wrench"></i></button>
+        </div>
+        <div class="image">
+          <img src="../../../../../assets/images/prediction-2.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <ng-template #loader>
+  <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+</ng-template> -->
