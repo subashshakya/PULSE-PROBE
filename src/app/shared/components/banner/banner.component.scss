@@ -5,20 +5,18 @@
      background-color: white;
      border-radius: 0.5rem;
      display: flex;
-     justify-content:flex-end;
-     gap: 20%;
+     justify-content:space-between;
      font-size: 1rem;
      position: sticky;
      top: 0;
-     
+
      .banner {
-          padding:0;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
+          padding:0 0 0 1.3rem;
+          align-items: flex-start;
+          justify-content: first baseline;
 
           img {
-               width: 50%;
+               width: 30%;
           }
      }
      .nav{
@@ -28,21 +26,37 @@
           justify-self: left;
           justify-content: space-between;
           align-items: center;
-          margin-right: 5%;
-     
+          margin-right: 2rem;
+          font-size: 1.1rem;
+
+          a {
+               text-decoration: none;
+               color: black;
+               margin-right: 0.3rem;
+          }
           .nav-component {
+               cursor: pointer;
                padding:0 2rem;
-               border-bottom: 1px solid transparent;
+               font-weight: 500;
                transition: border-bottom 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+               border-bottom: 1px solid transparent;
           }
 
-          .nav-component:hover {
+          a:hover {
                border-bottom: 1px solid black;
           }
 
           .btn-signup {
                padding: 0.5rem;
-               border:1px solid red
+               font-weight: 600;
+               background-color: var(--indigo-200);
+               color: white;
+               padding: 12px;
+               border-radius: 8px;
+
+               &:hover {
+                    border-bottom: none;
+               }
           }
 }
 }

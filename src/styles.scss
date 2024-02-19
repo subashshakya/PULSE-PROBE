@@ -4,3 +4,7 @@
 @import "primeicons/primeicons.css";
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=JetBrains+Mono&family=Raleway:wght@300&display=swap');
+body {
+  font-family: 'Raleway', sans-serif;
+}

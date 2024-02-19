@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./patient-nav-bar.component.scss']
 })
 export class PatientNavBarComponent {
-  public searchText:string ='';
+  public searchText:string = '';
 }

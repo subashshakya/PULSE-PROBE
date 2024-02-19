@@ -1,0 +1,13 @@
+@import "../../../../../styles.scss";
+
+.lab-dashboard {
+  .header {
+    margin-bottom: 0.3rem;
+  }
+
+  .lab-view {
+    display: flex;
+    gap: 1rem;
+    margin-right: 1rem;
+  }
+}

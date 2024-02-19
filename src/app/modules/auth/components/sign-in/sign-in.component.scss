@@ -1,10 +1,30 @@
 @import '../../../../../assets/css/mixins.scss';
 
+.signup-link {
+     display: flex;
+     margin: 20vh 20vh 0 20vh;
+     justify-content: space-between;
+     align-items: center;
+
+     h1 {
+          font-weight: 800;
+     }
+
+     a {
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: red;
+          cursor: pointer;
+     }
+}
+
 .sign-in-component {
      display: flex;
-     margin: 1rem;
+     background-color: var(--indigo-200);
+     margin: 0 20vh;
      justify-content: center;
      align-items: center;
+
      .info-image {
           background-color: white;
           padding: 1rem;
@@ -28,15 +48,33 @@
      }
 
      .sign-up-form{
-          background-color: var(--indigo-200);
           padding: 1.5rem;
+
+          .p-inputtext {
+               width: 100%;
+          }
+
+          .p-password-input {
+               width: 100%;
+          }
 
           .sign-in-field {
                @include formInputStyle();
           }
 
-          .btn-submit {
+          button {
                @include buttonSubmitStyle();
+               border-radius: 8px;
+               background-color: var(--indigo-400);
+               border: none;
+               padding: 12px;
+               color: white;
+               font-weight: 600;
+               transition: background-color 0.3s ease;
+
+               &:hover {
+                    background-color: var(--indigo-500);
+               }
           }
      }
 }

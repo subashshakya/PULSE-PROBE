@@ -1,5 +1,9 @@
+<div class="signup-link">
+     <h1>Don't have an account?</h1>
+     <a (click)="navigateToSignup()">Signup Here</a>
+</div>
 <div class="sign-in-component">
-     <div class="info-image">
+     <div class="info-image col-md-7">
           <img src="../../../../../assets/images/pulse-probe-logo.png" alt="logo-image">
           <h3>Benefits of creating an account</h3>
           <div class="promo-pulse-probe">
@@ -23,7 +27,7 @@
                Convienient Appointment Booking
           </div>
      </div>
-     <div class="sign-up-form">
+     <div class="sign-up-form col-md-5">
           <form [formGroup]="signinForm">
                <span class="p-float-label sign-in-field">
                     <input class="p-inputtext-lg" autocomplete="off" id="name" pInputText formControlName="name">
@@ -41,9 +45,7 @@
                     <input class="p-inputtext-lg" autocomplete="off" id="name" pInputText formControlName="phoneNumber">
                     <label htmlFor="name">Phone Number</label>
                </span>
-               <p-button label="Sign In" [loading]="isLoading" class="btn-submit" (onClick)="signinFormSubmit()"></p-button>
+               <button [disabled]="!signinForm.valid" class="btn-submit" (click)="signinFormSubmit()">Sign In</button>
           </form>
      </div>
 </div>
-
-<p>{{output}}</p>

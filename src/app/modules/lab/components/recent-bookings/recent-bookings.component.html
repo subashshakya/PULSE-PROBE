@@ -1,0 +1,16 @@
+<div class="recent-bookings">
+  <div class="header">
+    <i class="pi pi-book"></i>
+    <h2>
+      Recent Bookings
+    </h2>
+  </div>
+  <div class="bookings" *ngIf="!isLoading; else loader">
+    <app-booking *ngFor="let data of bookings"
+      [bookingData]="data"
+    ></app-booking>
+  </div>
+</div>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

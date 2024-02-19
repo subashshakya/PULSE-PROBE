@@ -4,6 +4,7 @@ import { DoctorService } from '../../services/doctor.service';
 import { ReportData, ReportDetail } from '../../models/doctor.model';
 import { PatientDetails } from '../../models/doctor.model';
 import { EchoPrediction } from '../../models/doctor.model';
+import { TreeNode } from 'primeng/api';
 
 @Component({
   selector: 'app-report-details',
@@ -29,6 +30,12 @@ export class ReportDetailsComponent implements OnInit {
     'Reduced Healthcare Costs',
     'Support for Clinicians'
   ];
+  public test:string = 'jslkdfjlskjf';
+  public isPredictionModalVisible: boolean = false;
+  public predictionDataTree: TreeNode[] = [];
+  public isEcgModalVisible: boolean = false;
+  public doctorID?: string | null;
+
   @Input() reportDataById: any;
   @Input() patientInfo: any;
 
@@ -36,17 +43,14 @@ export class ReportDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute, 
     private docService: DoctorService
   ) {
-    this.activatedRoute.paramMap.subscribe(params => {
-      this.patientID = this.activatedRoute.snapshot.paramMap.get('id');
-      console.log(this.patientID)
-    });
 
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.reportId = params['reportId'];
-    })
   }
 
   ngOnInit(): void {
+    this.doctorID = this.activatedRoute.snapshot.paramMap.get('id');
+    this.activatedRoute.queryParams.subscribe(data => {
+      this.patientID = data['reportId'];
+    })
     this.getReportById();
     this.getpatientDetailById();
     this.getEchoPrediction();
@@ -58,9 +62,9 @@ export class ReportDetailsComponent implements OnInit {
     this.docService.getReportDetailsById(this.patientID!)
       .subscribe(res => {
         if (res) {
+          this.isLoading = false;
           this.reportData = res;
           console.log('Report Data',this.reportData.patientReport);
-          this.isLoading = false;
         }
       }, err => {
         console.error(err);
@@ -106,6 +110,54 @@ export class ReportDetailsComponent implements OnInit {
         this.isLoading = false;
         this.echoPredictionResponse = res;
         console.log(this.echoPredictionResponse);
+      }, err => {
+        console.log(err);
+        this.isLoading = false;
       });
+  }
+
+  public showPredictionModal(): void {
+    this.isPredictionModalVisible = true;
+    this.predictionDataTree = [
+      {
+        label: 'Heart Disease',
+        expanded: true,
+        children: [
+            {
+                label: this.echoPredictionResponse?.result[0]===1 ? 'Disease is probable': 'Slim Chance',
+                expanded: this.echoPredictionResponse?.result[0]===1,
+                children: [
+                    {
+                        label: 'Chance of having disease: ' + (this.echoPredictionResponse?.classOneProbability! * 100) + '%'
+                    },
+                    {
+                        label: 'Chance of not having disease: ' + (this.echoPredictionResponse?.classZeroProbability! * 100) + '%'
+                    }
+                ]
+            },
+            {
+                label: this.echoPredictionResponse?.result[0]===0 ? 'Disease is improbable' : 'Slim Chance',
+                expanded: true,
+                children: [
+                    {
+                      label: 'Chance of having disease: ' + (this.echoPredictionResponse?.classOneProbability! * 100) + '%'
+                    },
+                    {
+                      label: 'Chance of not having disease: ' + (this.echoPredictionResponse?.classZeroProbability! * 100) + '%'
+                    }
+                ]
+            }
+        ]
+      }
+    ];
+  }
+
+  public hidePredictionModal(): void {
+    this.isPredictionModalVisible = false;
+  }
+
+  public showECGModal = (): void => {
+    this.isEcgModalVisible = true;
+    console.log('this is working')
   }
 }

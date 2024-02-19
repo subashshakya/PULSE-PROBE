@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/doctor/doctor.module').then((m) => m.DoctorModule)
+    redirectTo: 'doctor',
+    pathMatch: 'full'
   },
   {
     path: 'auth',
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'doctor',
     loadChildren: () => import('./modules/doctor/doctor.module').then((m) => m.DoctorModule)
+  },
+  {
+    path: 'lab',
+    loadChildren: () => import('./modules/lab/lab.module').then(mod => mod.LabModule)
   },
   {
     path: '**',

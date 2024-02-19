@@ -1,4 +1,7 @@
+@import "../../../../../styles.scss";
+
 .patient-nav-bar {
+  background-color: var(--primary-100);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,7 +38,7 @@
       }
 
       .item:hover {
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid orchid;
       }
     }
 

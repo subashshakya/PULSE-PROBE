@@ -14,7 +14,7 @@ export class SignUpComponent {
   public isLoading: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) {
-    this.signUpForm = formBuilder.group(
+    this.signUpForm = this.formBuilder.group(
       {
         name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
         email: ['', [Validators.required, Validators.email]],

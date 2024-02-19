@@ -1,0 +1,88 @@
+<div class="create-booking">
+  <div class="skeleton" *ngIf="isLoading">
+    <h1>Please Wait . . . </h1>
+    <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+    <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+    <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+    <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+    <div class="image">
+      <img src="../../../../../assets/images/loading.png">
+    </div>
+    <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+    <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+    <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+    <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+  </div>
+  <div class="header" *ngIf="!isLoading">
+    <h2>Where do you want to book today {{patientDetail?.patientFirstName}}?</h2>
+  </div>
+  <div class="selection">
+    <div class="select-option col-md-3">
+      <h4><strong>Doctor you want to consult: </strong></h4>
+      <select [(ngModel)]="selectedDoctorId" id="select" (ngModelChange)="setDoctorId(selectedDoctorId!)">
+        <option *ngFor="let doctor of doctorDetails"><h5>{{ doctor.firstName + ' ' + doctor.lastName}}</h5></option>
+      </select>
+      <div class="desc" *ngIf="doctorDesc">
+        <h6><strong>Doctor's Description:</strong></h6>
+        <p>{{ doctorDesc }}</p>
+      </div>
+    </div>
+    <div class="carousel col-md-9">
+      <p-carousel 
+        [value]="doctorDetails" 
+        [numVisible]="3" 
+        [numScroll]="1" 
+        [circular]="true" 
+        *ngIf="doctorDetails"
+      >
+        <ng-template let-doctor pTemplate="item">
+          <div class="border-1 surface-border border-round m-2 text-center py-4 px-3" id="carousel-item">
+            <div class="mb-3">
+              <img src="../../../../../assets/images/bookings.png" class="w-6 shadow-2">
+            </div>
+            <div>
+              <h4 class="mb-1"><strong>{{doctor.firstName + ' ' + doctor.lastName}}</strong></h4>
+              <h5><strong>NMC Number : </strong>{{' ' + doctor.nmcNumber}}</h5>
+              <h5><strong>Speciality :</strong>{{ doctor.speciality || ' Cardiologist'}}</h5>
+            </div>
+          </div>
+        </ng-template>  
+      </p-carousel>
+    </div>
+  </div>
+  <div class="selection">
+    <div class="select-option col-md-3">
+      <h4><strong>Where do you want to book appointment: </strong></h4>
+      <select [(ngModel)]="healthCareCenterId" id="select" (ngModelChange)="setHccId(healthCareCenterId!)">
+        <option *ngFor="let hcc of healthCareCenters"><h5>{{ hcc.healthCareCenterName }}</h5></option>
+      </select>
+      <div class="desc" *ngIf="hccDesc">
+        <h6><strong>Health Care Center Description:</strong></h6>
+        <p>{{hccDesc}}</p>
+      </div>
+    </div>
+    <div class="carousel col-md-9">
+      <p-carousel 
+        [value]="healthCareCenters" 
+        [numVisible]="3" 
+        [numScroll]="1" 
+        [circular]="true" 
+        *ngIf="healthCareCenters"
+      >
+      <ng-template let-hcc pTemplate="item">
+        <div class="border-1 surface-border border-round m-2 text-center py-4 px-3" id="carousel-item">
+          <div class="mb-3">
+            <img src="../../../../../assets/images/bookings.png" class="w-6 shadow-2">
+          </div>
+          <div>
+            <h4 class="mb-1"><strong>{{ hcc.healthCareCenterName }}</strong></h4>
+            <h5><strong>Address: </strong>{{ hcc.address }}</h5>
+            <h5><strong>Phone :</strong>{{ hcc.phoneNumber }}</h5>
+          </div>
+        </div>
+      </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+  <button>Book Appointment</button>
+</div>

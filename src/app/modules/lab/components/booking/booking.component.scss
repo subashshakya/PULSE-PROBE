@@ -1,0 +1,83 @@
+@import "../../../../../styles.scss";
+
+.booking-component {
+  padding: 0.5rem;
+  border: 2px solid var(--green-400);
+  margin: 1%;
+  border-radius: 8px;
+
+  .patient-info {
+    display: flex;
+    gap: 0.5rem;
+    .image {
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .patient-details {
+      padding: 0.5rem;
+      margin-left: 0.5rem;
+      .info {
+        display: flex;
+
+        p {
+          font-weight: 600;
+        }
+
+        a {
+          text-decoration: none;
+          color: #1a1a1a;
+        }
+      }
+    }
+  }
+
+  .doctor-timings {
+    .doctor {
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      border: 2px solid var(--green-300);
+      border-radius: 8px;
+      background-color: var(--green-100);
+      color: var(--green-700);
+
+      .name {
+        margin-right: 0.5rem;
+        padding: 0.5rem;
+        text-align: center;
+
+        h4 {
+          font-weight: 700;
+        }
+      }
+
+      .info-doc {
+        display: flex;
+        font-size: 1.3rem;
+        justify-content: center;
+        align-items: center;
+        a {
+          font-weight: 700;
+          margin-right: 0.2rem;
+        }
+      }
+    }
+
+    .booking-type {
+      text-align: right;
+      margin-top: 0.5rem;
+
+      h5 {
+        font-weight: 700;
+        padding: 0.5rem;
+        border: 2px solid orangered;
+        border-radius: 8px;
+        width: fit-content;
+        color: orangered;
+      }
+    }
+  }
+}

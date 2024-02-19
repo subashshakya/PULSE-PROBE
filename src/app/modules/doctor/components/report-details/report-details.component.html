@@ -2,56 +2,58 @@
 <div class="report-detail-page">
   <div class="report-data col-md-6">
     <h2>Report Data</h2>
-    <div *ngIf="!reportData">
-      <app-table-skeleton-loader [tableHeadings]="tableHeadings"></app-table-skeleton-loader>
+    <div *ngIf="!isLoading; else loader">
+      <div class="report-table">
+        <div class="field col-md-6">
+          <h5>Field</h5>
+          <p class="field-item">Aortic Root</p>
+          <p class="field-item">Cholestrol</p>
+          <p class="field-item">Chest Pain Type</p>
+          <p class="field-item">Resting Blood Pressure</p>
+          <p class="field-item">Diastole</p>
+          <p class="field-item">Exercise Induced Angina</p>
+          <p class="field-item">IVS</p>
+          <p class="field-item">Left Atrium</p>
+          <p class="field-item">Left Ventrical</p>
+          <p class="field-item">LVEF</p>
+          <p class="field-item">LVPW</p>
+          <p class="field-item">Old Peak</p>
+          <p class="field-item">Resting ECG</p>
+          <p class="field-item">Right Ventrical</p>
+          <p class="field-item">Slope</p>
+          <p class="field-item">Systole</p>
+          <p class="field-item">THAL</p>
+          <p class="field-item">THALACH</p>
+          <p class="field-item">Resting Blood Pressure</p>
+        </div>
+        <div class="actual-result col-md-6">
+          <h5>Actual Values</h5>
+          <!-- Comment and uncomment here-->
+          <!-- <p class="ac-res">{{reportData?.patientReport?.aarticRoot || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.chol || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.cp || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.restecg || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.diastole || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.exang}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.ivs || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.leftAtrium || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.leftVentrical || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.lvef || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.lvpw || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.oldpeak || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.restecg || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.rightVentrical || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.slope || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.systole}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.thal || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.thalach || ' '}}</p>
+          <p class="ac-res">{{reportData?.patientReport?.trestbps || ' '}}</p> -->
+        </div>
+      </div>
     </div>
-    <div class="report-table" *ngIf="reportData">
-      <div class="field col-md-6">
-        <h5>Field</h5>
-        <p class="field-item">Aortic Root</p>
-        <p class="field-item">Cholestrol</p>
-        <p class="field-item">Chest Pain Type</p>
-        <p class="field-item">Resting Blood Pressure</p>
-        <p class="field-item">Diastole</p>
-        <p class="field-item">Exercise Induced Angina</p>
-        <p class="field-item">IVS</p>
-        <p class="field-item">Left Atrium</p>
-        <p class="field-item">Left Ventrical</p>
-        <p class="field-item">LVEF</p>
-        <p class="field-item">LVPW</p>
-        <p class="field-item">Old Peak</p>
-        <p class="field-item">Resting ECG</p>
-        <p class="field-item">Right Ventrical</p>
-        <p class="field-item">Slope</p>
-        <p class="field-item">Systole</p>
-        <p class="field-item">THAL</p>
-        <p class="field-item">THALACH</p>
-        <p class="field-item">Resting Blood Pressure</p>
-      </div>
-      <div class="actual-result col-md-6">
-        <h5>Actual Values</h5>
-        <!--Comment and uncomment here-->
-        <p class="ac-res">{{reportData.patientReport.aarticRoot || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.chol || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.cp || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.restecg || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.diastole || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.exang}}</p>
-        <p class="ac-res">{{reportData.patientReport.ivs || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.leftAtrium || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.leftVentrical || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.lvef || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.lvpw || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.oldpeak || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.restecg || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.rightVentrical || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.slope || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.systole}}</p>
-        <p class="ac-res">{{reportData.patientReport.thal || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.thalach || ' '}}</p>
-        <p class="ac-res">{{reportData.patientReport.trestbps || ' '}}</p>
-      </div>
-    </div> 
+    <ng-template #loader>
+      <app-table-skeleton-loader [tableHeadings]="tableHeadings"></app-table-skeleton-loader>
+    </ng-template>
   </div>
   <div class="info-body col-md-6">
     <div class="patient-info">
@@ -104,11 +106,12 @@
                 <i class="pi pi-shield"></i>
               </div>
               <div>
-                <p>{{ reason}}</p>
+                <p>{{ reason }}</p>
               </div>
             </div>
           </div>
-          <button><i class="pi pi-wrench"></i></button>
+          <button class="btn" (click)="showPredictionModal()"><i class="pi pi-wrench" style="font-size: 1.5rem;"></i> PREDICT FROM ECHO DATA</button>
+          <button class="btn" (click)="showECGModal()"><i class="pi pi-wrench" style="font-size: 1.5rem;"></i> PREDICT FROM ECG DATA</button>
         </div>
         <div class="image">
           <img src="../../../../../assets/images/prediction-2.png">
@@ -118,7 +121,23 @@
   </div>
 </div>
 
+<p-dialog header="PREDICTION OF HEART DISEASE" [(visible)]="isPredictionModalVisible" [style]="{width: '40vw', opacity: '1' }" styleClass="prediction-modal" [modal]="true">
+  <div class="prediction-modal">
+    <h2 *ngIf="isLoading">Prediction in progress . . .</h2>
+    <p-organizationChart [value]="predictionDataTree" *ngIf="!isLoading && predictionDataTree"></p-organizationChart>
+    <h4 class="result" *ngIf="!isLoading && predictionDataTree">Final Result: {{ echoPredictionResponse!.result[0] === 1 ? 'POSSIBLE' : 'NOT POSSIBLE' }}</h4>
+  </div>
+</p-dialog>
 
-<!-- <ng-template #loader>
-  <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
-</ng-template> -->
+<p-dialog
+  header="PREDICTION OF HEART ARRHYTHMIA"
+  [(visible)]="isEcgModalVisible"
+  [style]="{width: '50vw', opacity: '1' }"
+  styleClass="prediction-modal"
+  [modal]="true"
+>
+  <div class="prediction-modal">
+    <h2>ENTER THE PATIENT ID:</h2>
+
+  </div>
+</p-dialog>

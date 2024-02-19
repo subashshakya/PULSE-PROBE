@@ -24,13 +24,13 @@ h4{
     .report-table {
       padding: 0.5rem;
       display: flex;
-      background-color: var(--red-100);
+      background-color: var(--red-200);
       border-radius: 10px;
 
       h5 {
         padding: 1rem;
         border-radius: 8px;
-        background-color: var(--primary-50);
+        background-color: var(--red-100);
         margin: 0 0.5rem;
         text-align: center;
       }
@@ -47,7 +47,7 @@ h4{
       .actual-result {
         .ac-res {
           margin: 0.5rem;
-          background: var(--primary-100);
+          background: var(--red-50);
           padding: 0.5rem;
           border-radius: 6px;
           text-align: center;
@@ -93,6 +93,8 @@ h4{
     }
 
     .prediction-model {
+      margin-top: 2rem;
+
       .container {
         display: flex;
 
@@ -108,6 +110,21 @@ h4{
           border-radius: 8px;
           margin-right: 1rem;
 
+          .btn {
+            padding: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+            box-shadow: 1px 1px 5px black;
+          }
+
+          .btn:hover {
+            box-shadow: 1px 1px 6px orangered;
+            color: orangered;
+          }
+
           .reason {
             display: flex;
             gap: 0.3rem;
@@ -118,4 +135,17 @@ h4{
       }
     }
   }
+}
+
+.prediction-modal {
+  background-color: var(--red-100);
+  border-radius: 10px;
+  padding: 1rem; 
+}
+
+.result {
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 400;
+  background-color: var(--red-200);
 }

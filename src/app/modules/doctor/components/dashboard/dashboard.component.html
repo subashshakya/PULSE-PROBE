@@ -35,18 +35,19 @@
           </div>
         </div>
         <ul *ngFor="let report of doctorReportsById;let i = index">
-          <li *ngIf="doctorReportsById"><app-report-list-item
-            (click)="goToDetailsPage(doctorReportsById[i].patientId, doctorReportsById[i].reportId)"
-            [reportId]="report.reportId.toString()"
-            [reportStatus]="'Verified'"
-            [patientName]="report.patientFirstName"
-            [labBookedin]="report.healthCareCenterName"
-            [reportType]="'New Report'"
+          <li *ngIf="doctorReportsById">
+            <app-report-list-item
+              (click)="goToDetailsPage(doctorReportsById[i].patientId, doctorReportsById[i].reportId)"
+              [reportId]="report.reportId.toString()"
+              [reportStatus]="'Verified'"
+              [patientName]="report.patientFirstName"
+              [labBookedin]="report.healthCareCenterName"
+              reportType="New Report"
             ></app-report-list-item>
           </li>
         </ul>
       </div>
-    </div>  
+    </div>
   </div>
 </div>
 

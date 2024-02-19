@@ -1,0 +1,159 @@
+<div class="create-report">
+  <app-sub-nav-bar title="Create Report For Patient"></app-sub-nav-bar>
+  <div class="form-data">
+    <div class="flex justify-content-center patient-select" *ngIf="!isLoading && patientList.length > 0">
+      <span class="p-float-label">
+          <p-dropdown [options]="patientList" [(ngModel)]="selectedPatientId" placeholder="Select a patient" optionLabel="patientFirstName" inputId="float-label"></p-dropdown>
+          <label for="float-label">Select a patient</label>
+      </span>
+    </div>
+    <div *ngIf="selectedPatientId">
+      <div class="patient-details">
+        <h3>Patient Details</h3>
+        <div class="info">
+          <p>Patient ID: </p>
+          <h5>{{ selectedPatientId?.patientId }}</h5>
+        </div>
+        <div class="info">
+          <p>Name: </p>
+          <h5>{{ (selectedPatientId?.patientFirstName + ' ' + selectedPatientId?.patientLastName) | titlecase }}</h5>
+        </div>
+        <div class="info">
+          <p>Address: </p>
+          <h5>{{ selectedPatientId?.address ?? '--' }}</h5>
+        </div>
+        <div class="info">
+          <p>Phone Number: </p>
+          <h5>{{ selectedPatientId?.phoneNumber ?? '--'}}</h5>
+        </div>
+        <div class="info">
+          <p>Email: </p>
+          <h5>{{ selectedPatientId?.email ?? '--' }}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="form">
+      <form [formGroup]="reportForm">
+        <div class="divider">
+          <div class="col-md-4">
+            <span class="p-float-label form-field">
+              <input pInputText id="report-id" formControlName="reportId" />
+              <label for="report-id">Enter the report ID</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="patient-id" formControlName="patientId" />
+              <label for="patient-id">Patient's ID</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="hcn" formControlName="healthCareCenterName" />
+              <label for="hcn">Health Care Center Name</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="age" formControlName="age"/>
+              <label for="age">Age of the patient</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="sex" formControlName="sex" />
+              <label for="sex">Gender of the patient</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="cp" formControlName="cp" />
+              <label for="cp">Chest Pain Type</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="t-rest-bps" formControlName="tRestBps" />
+              <label for="t-rest-bps">Rest BPS</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="chol" formControlName="chol" />
+              <label for="chol">Chol</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="fbs" formControlName="fbs" />
+              <label for="fbs">FBS</label>
+            </span>
+          </div>
+          <div class="col-md-4">
+            <span class="p-float-label form-field">
+              <input pInputText id="rest-ecg" formControlName="restecg" />
+              <label for="rest-ecg">Rest ECG</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="thalach" formControlName="thalach" />
+              <label for="thalach">Thalach</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="exang" formControlName="exang"/>
+              <label for="exang">Exang</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="old-peak" formControlName="oldPeak" />
+              <label for="old-peak">Old Peak for Patient</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="slope" formControlName="slope" />
+              <label for="slope">Slope</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="ca" formControlName="ca" />
+              <label for="ca">CA</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="thal" formControlName="thal" />
+              <label for="thal">Thal</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="sonographer" formControlName="sonographer" />
+              <label for="sonographer">Sonographer</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="aartic-rrot" formControlName="aarticRoot" />
+              <label for="aartic-rrot">Aortic Root</label>
+            </span>
+          </div>
+          <div class="col-md-4">
+            <span class="p-float-label form-field">
+              <input pInputText id="left-ventrical" formControlName="leftVentrical" />
+              <label for="left-ventrical">Left Ventrical</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="right-ventrical" formControlName="rightVentrical" />
+              <label for="right-ventrical">Right Ventrical</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="diastole" formControlName="diastole" />
+              <label for="diastole">Diastole</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="systole" formControlName="systole" />
+              <label for="systole">Systole</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="lvpw" formControlName="lvpw" />
+              <label for="lvpw">LVPW</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="lvef" formControlName="lvef" />
+              <label for="lvef">LVEF</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="left-atrium" formControlName="leftAtrium" />
+              <label for="left-atrium">Left Atrium</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="ivs" formControlName="ivs" />
+              <label for="ivs">IVS</label>
+            </span>
+            <span class="p-float-label form-field">
+              <input pInputText id="owner" formControlName="owner" />
+              <label for="owner">Owner</label>
+            </span>
+          </div>
+        </div>
+        <button [disabled]="!reportForm.valid" (click)="submitReport()" class="btn btn-submit">
+          Create Report
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

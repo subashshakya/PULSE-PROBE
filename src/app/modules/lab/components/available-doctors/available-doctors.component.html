@@ -1,0 +1,15 @@
+<div class="doctor-list">
+  <div class="header">
+    <i class="pi pi-clock"></i>
+    <h2>
+      Available Doctor Timing
+    </h2>
+  </div>
+  <div *ngIf="!isLoading; else loader"></div>
+  <app-doctor-list-component *ngFor="let data of doctorList"
+    [doctorObject]="data"
+  ></app-doctor-list-component>
+</div>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

@@ -1,0 +1,77 @@
+@import "../../../../../styles.scss";
+
+.create-booking {
+  .skeleton {
+    h1 {
+      margin-bottom: 2rem;
+    }
+    padding: 2rem;
+    text-align: center;
+    margin-right: 10%;
+    margin-left: 10%;
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 50%;
+      }
+    }
+  }
+
+  .header {
+    text-align: center;
+    padding: 0.5rem;
+    background-color: var(--primary-100);
+
+    img {
+      width: 30%;
+    }
+  }
+
+  .selection {
+    display: flex;    
+  }
+}
+
+img {
+  width: 12rem;
+  border-radius: 6px;
+}
+
+#carousel-item {
+  border-radius: 8px;
+  box-shadow: 3px 5px 8px var(--primary-200);
+}
+
+#select {
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  border-radius: 7px;
+  background-color: var(--primary-50);
+  border: 1px solid var(--primary-300);
+}
+
+.select-option {
+  padding: 1rem;
+  box-shadow: 3px 5px 8px var(--primary-200);
+  border-radius: 8px;
+  margin: 0.5rem;
+  max-height: 25rem;
+}
+
+.desc {
+  max-height: 15rem;
+  padding: 1rem;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
+.selection {
+  border: 1px solid var(--primary-200);
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 8px;
+}

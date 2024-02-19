@@ -1,0 +1,38 @@
+<div class="booking-component">
+  <div class="patient-info">
+    <div class="image col-md-3">
+      <img [src]="bookingData?.img ?? 'assets/images/patient.png'">
+    </div>
+    <div class="patient-details col-md-9">
+      <div class="info">
+        <p class="col-md-4">Patient Name: </p>
+        <a class="col-md-8">{{ bookingData?.patientFullName ?? '--' }}</a>
+      </div>
+      <div class="info">
+        <p class="col-md-4">Contact Information: </p>
+        <a class="col-md-8">{{ bookingData?.phoneNumber ?? '--' }}</a>
+      </div>
+      <div class="info">
+        <p class="col-md-4">Disease: </p>
+        <a class="col-md-8">{{ bookingData?.title ?? '--' }}</a>
+      </div>
+      <div class="info">
+        <p class="col-md-4">Patient Address: </p>
+        <a class="col-md-8">{{ bookingData?.address ?? '--' }}</a>
+      </div>
+    </div>
+  </div>
+  <div class="doctor-timings">
+    <div class="doctor">
+      <div class="name col-md-6">
+        <h4>{{ 'Booking Time: ' + (bookingData?.bookedDate | date:'MMM-dd HH:mm a') }}</h4>
+      </div>
+      <div class="info-doc col-md-6">
+        <a>{{ "For : " + (bookingData?.doctorFullName ?? '--') }}</a>
+      </div>
+    </div>
+    <div class="booking-type">
+      <h5>{{ bookingData?.status ?? '--' }}</h5>
+    </div>
+  </div>
+</div>

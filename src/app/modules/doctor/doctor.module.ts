@@ -17,6 +17,10 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SkeletonModule } from 'primeng/skeleton';
 import { ListboxModule } from 'primeng/listbox';
+import { DialogModule } from 'primeng/dialog';
+import { OrganizationChartModule } from 'primeng/organizationchart';
+import { MainComponent } from './components/main/main.component';
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -25,6 +29,7 @@ import { ListboxModule } from 'primeng/listbox';
     CalendarComponent,
     PatientReportListComponent,
     ReportListItemComponent,
+    MainComponent,
   ],
   imports: [
     CommonModule,
@@ -37,8 +42,15 @@ import { ListboxModule } from 'primeng/listbox';
     SkeletonModule,
     ProgressSpinnerModule,
     HttpClientModule,
-    ListboxModule
+    ListboxModule,
+    DialogModule,
+    OrganizationChartModule
   ],
-  providers: [DoctorService]
+  providers: [
+    DoctorService
+  ],
+  exports: [
+    CalendarComponent,
+  ]
 })
 export class DoctorModule { }

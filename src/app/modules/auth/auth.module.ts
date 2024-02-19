@@ -14,13 +14,21 @@ import { PasswordModule } from 'primeng/password';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { AuthService } from './services/auth.service';
+import { MainComponent } from './pages/main/main.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageService } from 'primeng/api';
+
 @NgModule({
   declarations: [
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
+    MainComponent,
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    MessageService
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -33,7 +41,8 @@ import { AuthService } from './services/auth.service';
     InputMaskModule,
     PasswordModule,
     ButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MessagesModule
   ]
 })
 export class AuthModule { }

@@ -4,10 +4,12 @@
      </div>
      <div class="nav">
           <a class="nav-component">Home</a>
-          <a class="nav-component">Find Doctor</a>
-          <a class="nav-component">Search Nearby Labs</a>
-          <a class="nav-component">Book Tests</a>
-          <a class="nav-component">Book Appointment</a>
-          <a class="nav-component btn-signup" *ngIf="!isLoggedIn">Login/SignUp</a>
+          <a class="nav-component" *ngIf="currentRoute === routeData.Patient">Find Doctor</a>
+          <a class="nav-component" *ngIf="currentRoute === routeData.Patient">Search Nearby Labs</a>
+          <a class="nav-component" *ngIf="currentRoute === routeData.Patient">Book Tests</a>
+          <a class="nav-component" *ngIf="currentRoute === routeData.Patient">Book Appointment</a>
+          <a class="nav-component" *ngIf="this.currentRoute === routeData.Lab" (click)="navigateTo('lab/create-report')">Create Report</a>
+          <a class="nav-component" *ngIf="this.currentRoute === routeData.Lab">Update Promotions</a>
+          <a class="nav-component" *ngIf="this.currentRoute === routeData.Lab" (click)="navigateTo('lab/doctor-addition')">Search Doctors</a>
      </div>
 </div>

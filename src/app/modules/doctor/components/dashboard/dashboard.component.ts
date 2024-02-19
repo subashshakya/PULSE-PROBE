@@ -12,22 +12,21 @@ export class DashboardComponent implements OnInit {
   public reports: any;
   public docId: string | null = '';
   public doctorReportsById: DoctorReport[] = [];
+  public tableHeadings = ['Field', 'Normal', 'Actual'];
 
   constructor(
-    private docService: DoctorService, 
+    private docService: DoctorService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getPatientInfo();
   }
-  
-  public tableHeadings = ['Field', 'Normal', 'Actual'];
+
   public getPatientInfo(): void {
+    console.log(localStorage.getItem('jwt'))
     this.docService.getReportsByDoctorId(2).subscribe(res => {
       this.doctorReportsById = res;
-      console.log(this.doctorReportsById);
-      console.log(this.doctorReportsById[0].patientId);
     })
   }
 

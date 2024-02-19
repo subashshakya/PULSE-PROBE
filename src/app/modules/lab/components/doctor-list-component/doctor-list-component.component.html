@@ -1,0 +1,9 @@
+<div class="list-component">
+  <h3>Doctor: {{ ((doctorObject?.firstName + ' ' + doctorObject?.lastName) | titlecase) ?? '--'}}</h3>
+  <h2>Available Time</h2>
+  <div class="list">
+    <h3>From : {{ doctorObject?.startingTime }}</h3>
+    <h3> - - - </h3>
+    <h3>To: {{ doctorObject?.endingTime }}</h3>
+  </div>
+</div>
